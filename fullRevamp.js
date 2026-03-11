@@ -9,6 +9,64 @@ const data = Vue.reactive({
   animation: {},
 })
 
+/* --- MODIFICATION SECTION START --- */
+const CHEAT_CONFIG = {
+  gameSpeedMultiplier: 100,      // Change this to make the game faster (e.g., 2, 5, 10)
+  ascensionPointMultiplier: 100 // Change this to multiply your Ascension Points earned
+};
+/* --- MODIFICATION SECTION END --- */
+
+// ... (existing Vue setup and variable declarations)
+
+class GameData {
+  constructor(options) {
+    options = options || {}
+    // ... (existing properties)
+    
+    // MODIFIED: Incorporating the gameSpeedMultiplier into the base logic
+    this.tickSpeedMult = (options.tickSpeedMult || 100); 
+    this.tickSpeed = (options.tickSpeed || 100);
+    this.baseTickSpeed = (options.baseTickSpeed || 10);
+    
+    // This value will be used in the main loop to scale all progress
+    this.cheatSpeed = CHEAT_CONFIG.gameSpeedMultiplier; 
+  }
+}
+
+// ... (middle section of the file)
+
+/**
+ * To apply the Ascension Point Multiplier, locate your reset/ascension function.
+ * Since the original file is large, search for where "ascensionPoint" is added.
+ * Example of how to apply the multiplier:
+ */
+function applyAscension(basePoints) {
+    let bonusPoints = f(basePoints).mul(CHEAT_CONFIG.ascensionPointMultiplier);
+    IUniversal.ascensionPoint = f(IUniversal.ascensionPoint).add(bonusPoints);
+    // ... rest of reset logic
+}
+
+// MODIFIED mainGameLoop to support faster speed
+function mainGameLoop(timestamp) {
+  if (waiting) return;
+
+  // Calculate delta time and multiply by our cheat speed
+  let now = Date.now();
+  let diff = (now - IGameData.lastTick) / 1000;
+  let effectiveTick = diff * CHEAT_CONFIG.gameSpeedMultiplier;
+
+  // Update logic using the effective tick speed
+  valuesSetterDinamic(); 
+  
+  // ... (rest of the loop)
+  requestAnimationFrame(mainGameLoop);
+}
+
+
+
+
+
+
 const app = Vue.createApp({ data: () => data })
 app.mount('body')
 
