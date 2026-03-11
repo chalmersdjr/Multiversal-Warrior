@@ -9,8 +9,6 @@ const data = Vue.reactive({
   animation: {},
 })
 
-const GameData.baseTickspeed = 100; // >1 = faster progression
-
 const app = Vue.createApp({ data: () => data })
 app.mount('body')
 
@@ -82,7 +80,7 @@ class GameData {
     this.tickSpeedOff = options.tickSpeedOff || 0;
     //tickspeed mult temp
     this.tickSpeedMult = options.tickSpeedMult || 0.05;
-    this.tickSpeed = options.tickSpeed || 1;
+    this.tickSpeed = options.tickSpeed || 100;
     this.baseTickSpeed = options.baseTickSpeed || 0.05
   }
 }
