@@ -79,9 +79,9 @@ class GameData {
     this.lastTick = options.lastTick || Date.now();
     this.tickSpeedOff = options.tickSpeedOff || 0;
     //tickspeed mult temp
-    this.tickSpeedMult = options.tickSpeedMult || 0.05;
+    this.tickSpeedMult = options.tickSpeedMult || 100;
     this.tickSpeed = options.tickSpeed || 100;
-    this.baseTickSpeed = options.baseTickSpeed || 0.05
+    this.baseTickSpeed = options.baseTickSpeed || 100
   }
 }
 
