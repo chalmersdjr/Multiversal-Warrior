@@ -126,7 +126,7 @@ class Universal {
   constructor(options) {
     options = options || {};
 
-    this.universe = options.universe || 1;
+    this.universe = options.universe || 100;
     this.ascensionPoint = options.ascensionPoint || 0;
     this.ascensionPointMax = options.ascensionPointMax || 0;
 
