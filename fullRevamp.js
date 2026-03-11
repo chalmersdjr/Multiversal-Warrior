@@ -44,7 +44,7 @@ var IUniversalChallengerIn;
 var secretKey = "DontLookAtMePls";
 var saveData;
 var waiting = false;
-var freeTick = false
+var freeTick = true
 
 
 document.addEventListener('DOMContentLoaded', (event) => {
