@@ -9,7 +9,7 @@ const data = Vue.reactive({
   animation: {},
 })
 
-const GAME_SPEED = 10000; // >1 = faster progression
+const GameData.baseTickspeed = 100; // >1 = faster progression
 
 const app = Vue.createApp({ data: () => data })
 app.mount('body')
